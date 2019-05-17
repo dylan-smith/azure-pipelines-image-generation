@@ -44,7 +44,9 @@
                 "mkdir {{user `image_folder`}}",
                 "chmod 777 {{user `image_folder`}}",
                 "echo {{user `commit_id`}} > {{user `commit_file`}}",
-                "chmod +r {{user `commit_file`}}"
+                "chmod +r {{user `commit_file`}}",
+                "apt-get clean",
+                "rm -rf /var/lib/apt/lists/*"
             ],
             "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
         },
